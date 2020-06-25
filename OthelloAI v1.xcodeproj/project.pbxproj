@@ -1,0 +1,150 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXFileReference section */
+		26F1E42A24A396120003CDD8 /* makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
+		26F1E42B24A396120003CDD8 /* player_invalid.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = player_invalid.cpp; sourceTree = "<group>"; };
+		26F1E42C24A396120003CDD8 /* player_partial.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = player_partial.cpp; sourceTree = "<group>"; };
+		26F1E42D24A396120003CDD8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		26F1E42E24A396120003CDD8 /* player_infinite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = player_infinite.cpp; sourceTree = "<group>"; };
+		26F1E42F24A396120003CDD8 /* player_random.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = player_random.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		26F1E42424A396120003CDD8 = {
+			isa = PBXGroup;
+			children = (
+				26F1E42A24A396120003CDD8 /* makefile */,
+				26F1E42B24A396120003CDD8 /* player_invalid.cpp */,
+				26F1E42C24A396120003CDD8 /* player_partial.cpp */,
+				26F1E42D24A396120003CDD8 /* main.cpp */,
+				26F1E42E24A396120003CDD8 /* player_infinite.cpp */,
+				26F1E42F24A396120003CDD8 /* player_random.cpp */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		26F1E42924A396120003CDD8 /* OthelloAI v1 */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 26F1E43024A396120003CDD8 /* Build configuration list for PBXLegacyTarget "OthelloAI v1" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "/Users/liki/Desktop/OthelloAI v1";
+			dependencies = (
+			);
+			name = "OthelloAI v1";
+			passBuildSettingsInEnvironment = 1;
+			productName = "OthelloAI v1";
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXProject section */
+		26F1E42524A396120003CDD8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = 26F1E42824A396120003CDD8 /* Build configuration list for PBXProject "OthelloAI v1" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 26F1E42424A396120003CDD8;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				26F1E42924A396120003CDD8 /* OthelloAI v1 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		26F1E42624A396120003CDD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx10.15.4;
+			};
+			name = Debug;
+		};
+		26F1E42724A396120003CDD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SDKROOT = macosx10.15.4;
+			};
+			name = Release;
+		};
+		26F1E43124A396120003CDD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "OthelloAI v1";
+				SDKROOT = macosx10.15;
+			};
+			name = Debug;
+		};
+		26F1E43224A396120003CDD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "OthelloAI v1";
+				SDKROOT = macosx10.15;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		26F1E42824A396120003CDD8 /* Build configuration list for PBXProject "OthelloAI v1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26F1E42624A396120003CDD8 /* Debug */,
+				26F1E42724A396120003CDD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26F1E43024A396120003CDD8 /* Build configuration list for PBXLegacyTarget "OthelloAI v1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26F1E43124A396120003CDD8 /* Debug */,
+				26F1E43224A396120003CDD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 26F1E42524A396120003CDD8 /* Project object */;
+}
