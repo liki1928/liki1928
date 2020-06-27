@@ -13,7 +13,12 @@ const int SIZE = 8;
 std::array<std::array<int, SIZE>, SIZE> board;
 std::vector<Point> next_valid_spots;
 int Judge(int x, int y, int color,int board[SIZE][SIZE]);
-const int MOVE[8][2] = { { -1, 0 },{ 1, 0 },{ 0, -1 },{ 0, 1 },{ -1, -1 },{ 1, -1 },{ 1, 1 },{ -1, 1 } }; //方位
+const int MOVE[8][2] = { { -1, 0 }, { 1, 0 },
+                         { 0, -1 }, { 0, 1 },
+                         { -1, -1},{ 1, -1 },
+                         { 1, 1 }, { -1, 1 }
+    
+}; //方位
 const int MAPPOINTCOUNT[8][8] = {
     {200,2,10,10,10,10,2,200},
     {2,1,50,50,50,50,1,2},
