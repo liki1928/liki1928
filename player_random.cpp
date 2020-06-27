@@ -37,6 +37,7 @@ void write_valid_spot(std::ofstream& fout) {
     int n_valid_spots = next_valid_spots.size();
     srand(time(NULL));
     // Choose random spot. (Not random uniform here)
+    
     int index = (rand() % n_valid_spots);
     Point p = next_valid_spots[index];
     // Remember to flush the output to ensure the last action is written to file.
