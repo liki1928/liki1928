@@ -46,6 +46,7 @@ void write_valid_spot(std::ofstream& fout) {
     fout.flush();
 }
 
+
 int main(int, char** argv) {
     std::ifstream fin(argv[1]);
     std::ofstream fout(argv[2]);

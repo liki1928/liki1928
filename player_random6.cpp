@@ -142,15 +142,15 @@ void copymap(int one[SIZE][SIZE], int last[SIZE][SIZE])                        /
         for (int j = 0; j < SIZE; j++)
             one[i][j] = last[i][j];
 }
-int minimax(int x,int y,int mapnow[SIZE][SIZE],int expectnow[SIZE][SIZE],int depin,int depinmax)    //極大極小搜索
-{
-    if (depin >= depinmax)return 0;            //遞歸出口
+int minimax(int x,int y,int mapnow[SIZE][SIZE],int expectnow[SIZE][SIZE],int depin,int depinmax){ //極大極小搜索
+
+    if (depin >= depinmax)return 0;   //遞歸出口
 
     int maxx = -10005;                //最大權值
     POINT2 NOW;
     int expectnow2[SIZE][SIZE] , mapnow2[SIZE][SIZE],mapnext[SIZE][SIZE],expectlast[SIZE][SIZE];    //定義臨時數組
 
-    copymap(mapnow2, mapnow);            //復制當前棋盤
+    copymap(mapnow2, mapnow);                //復制當前棋盤
 
     mapnow2[x][y] = player ? 1 : -1;        //模擬在當前棋盤上下棋
     int ME = MAPPOINTCOUNT[x][y] + expectnow[x][y];    //當前棋子權
@@ -160,27 +160,28 @@ int minimax(int x,int y,int mapnow[SIZE][SIZE],int expectnow[SIZE][SIZE],int dep
 
     int MAXEXPECT = 0, LINEEXPECT = 0;
     for (int i = 0; i < SIZE; ++i)
-        for (int j = 0; j < SIZE; ++j)
-        {
+        for (int j = 0; j < SIZE; ++j){
             expectnow2[i][j] = Judge(i, j, !player, mapnow2);//預判對方是否可以走棋
-            if (expectnow2[i][j])
-            {
+            if (expectnow2[i][j]){
                 ++MAXEXPECT;
-                if ((i == 0 && j == 0) || (i == 0 && j == SIZE - 1) || (i == SIZE - 1 && j == SIZE - 1) || (i == SIZE - 1 && j == 0))return -1800;    //如果對方有占角的可能
-                if ((i < 2 && j < 2) || (i < 2 && SIZE - j - 1 < 2) || (SIZE - 1 - i < 2 && j < 2) || (SIZE - 1 - i < 2 && SIZE - 1 - j < 2))++LINEEXPECT;
+                if ((i == 0 && j == 0) || (i == 0 && j == SIZE - 1) || (i == SIZE - 1 && j == SIZE - 1) || (i == SIZE - 1 && j == 0))
+                    return -1800;    //如果對方有占角的可能
+                if ((i < 2 && j < 2) || (i < 2 && SIZE - j - 1 < 2) || (SIZE - 1 - i < 2 && j < 2) || (SIZE - 1 - i < 2 && SIZE - 1 - j < 2))
+                    ++LINEEXPECT;
             }
         }
-    if (LINEEXPECT * 10 > MAXEXPECT * 7)return 1400;//如果對方走到壞點狀態較多 剪枝
+    if (LINEEXPECT * 10 > MAXEXPECT * 7)
+        return 1400;                      //如果對方走到壞點狀態較多 剪枝
 
     for (int i = 0; i < SIZE; i++)
         for (int j = 0; j < SIZE; j++)
-            if (expectnow2[i][j])        //如果對方可以走棋
-            {
+            if (expectnow2[i][j]){        //如果對方可以走棋
+
                 int YOU = MAPPOINTCOUNT[i][j] + expectnow2[i][j];//當前權值
-                copymap(mapnext, mapnow2);    //拷貝地圖
-                mapnext[i][j] = (!player) ? 1 : -1;        //模擬對方走棋
+                copymap(mapnext, mapnow2);                       //拷貝地圖
+                mapnext[i][j] = (!player) ? 1 : -1;              //模擬對方走棋
                 NOW.INIT(i, j);
-                Change(NOW, mapnext, false);            //改變棋盤
+                Change(NOW, mapnext, false);                     //改變棋盤
 
                 for (int k = 0; k < SIZE; k++)
                     for (int l = 0; l < SIZE; l++)
@@ -188,8 +189,7 @@ int minimax(int x,int y,int mapnow[SIZE][SIZE],int expectnow[SIZE][SIZE],int dep
 
                 for (int k = 0; k < SIZE; k++)
                     for (int l = 0; l < SIZE;l++)
-                        if (expectlast[k][l])
-                        {
+                        if (expectlast[k][l]){
                             int nowm = ME - YOU + minimax(k, l, mapnext, expectlast, depin + 1, depinmax);
                             maxx = maxx < nowm ? nowm : maxx;
                         }
