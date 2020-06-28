@@ -89,7 +89,7 @@ void read_valid_spots(std::ifstream& fin) {
     }
 }
 int check(int x, int y, int color){                      //预判当前位置能否下子
-    // if (board[x][y])return 0;                         //如果当前位置已经有棋子
+    if (board[x][y])return 0;                         //如果当前位置已经有棋子
     int me = color ? 1 : 2;                              //准备落棋棋子颜色
     POINT2 star;
     int count = 0, flag;                                 //count为该位置可以转换对手棋子个数

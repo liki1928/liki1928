@@ -13,8 +13,8 @@ const int SIZE = 8;
 std::array<std::array<int, SIZE>, SIZE> board;
 std::vector<Point> next_valid_spots;
 int Judge(int x, int y, int color,int board[SIZE][SIZE]);
-const int MOVE[8][2] = { { -1, 0 },{ 1, 0 },{ 0, -1 },{ 0, 1 },{ -1, -1 },{ 1, -1 },{ 1, 1 },{ -1, 1 } }; //方位
-const int MAPPOINT[8][8] = {
+int MOVE[8][2] = { { -1, 0 },{ 1, 0 },{ 0, -1 },{ 0, 1 },{ -1, -1 },{ 1, -1 },{ 1, 1 },{ -1, 1 } }; //方位
+int MAPPOINT[SIZE][SIZE] = {
     {200,2,10,10,10,10,2,200},
     {2,1,50,50,50,50,1,2},
     {100,50,10,10,10,10,50,100},
@@ -109,11 +109,25 @@ void write_valid_spot(std::ofstream& fout) {
     //int index = (rand() % n_valid_spots);
     int a=-2;
     int x,y;
+    
     for(int i=0;i<n_valid_spots;i++){
         int cou=-1;
         Point p = next_valid_spots[i];
+        if(board[0][0]==player){
+            MAPPOINT[1][0]=30;
+            MAPPOINT[0][1]=30;
+        }else if(board[7][0]==player){
+            MAPPOINT[6][0]=30;
+            MAPPOINT[7][1]=30;
+        }else if(board[0][7]==player){
+            MAPPOINT[0][6]=30;
+            MAPPOINT[1][7]=30;
+        }else if(board[7][7]==player){
+            MAPPOINT[6][7]=30;
+            MAPPOINT[7][6]=30;
+        }
         cou = check(p.x,p.y,1)+MAPPOINT[p.x][p.y];
-
+        
         if(cou>a){
             a=cou;
             x=p.x;

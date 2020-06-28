@@ -15,13 +15,13 @@ int expect[SIZE][SIZE];
 std::array<std::array<int, SIZE>, SIZE> board;
 std::vector<Point> next_valid_spots;
 int Judge(int x, int y, int color,int board[SIZE][SIZE]);
-const int MOVE[8][2] = { { -1, 0 }, { 1, 0 },
+int MOVE[8][2] = { { -1, 0 }, { 1, 0 },
                          { 0, -1 }, { 0, 1 },
                          { -1, -1},{ 1, -1 },
                          { 1, 1 }, { -1, 1 }
     
 }; //方位
-const int MAPPOINTCOUNT[8][8] = {
+int MAPPOINTCOUNT[8][8] = {
     {200,2,10,10,10,10,2,200},
     {2,1,50,50,50,50,1,2},
     {100,50,10,10,10,10,50,100},
@@ -34,7 +34,7 @@ const int MAPPOINTCOUNT[8][8] = {
 class POINT2{
 public:
     void WIN2MAP(POINT2 &MAP){            //建立棋盘与矩阵的映射关系
-        MAP.x = (x ) / 1;
+        MAP.x = (x) / 1;
         MAP.y = (y) / 1;
     }
     void MAP2WIN(POINT2 &WIN){            //建立矩阵与棋盘的映射关系
@@ -82,6 +82,8 @@ void read_valid_spots(std::ifstream& fin) {
         next_valid_spots.push_back({x, y});
     }
 }
+
+
 void mappadd(int x, int y, int color,int board[SIZE][SIZE])        //向地图中添加棋子
 {
     POINT2 WINDOWS2, board2;
@@ -90,7 +92,7 @@ void mappadd(int x, int y, int color,int board[SIZE][SIZE])        //向地图�
     board[board2.x][board2.y] = color ? 1 : -1;
 }
 int Judge(int x, int y, int color,int board[SIZE][SIZE]){                      //预判当前位置能否下子
-    // if (board[x][y])return 0;                         //如果当前位置已经有棋子
+    if (board[x][y])return 0;                         //如果当前位置已经有棋子
     int me = color ? 1 : -1;                              //准备落棋棋子颜色
     POINT2 star;
     int count = 0, flag;                                 //count为该位置可以转换对手棋子个数
@@ -98,7 +100,7 @@ int Judge(int x, int y, int color,int board[SIZE][SIZE]){                      /
         flag = 0;
         star.INIT(x + MOVE[i][0], y + MOVE[i][1]);
         while (star.x >= 0 && star.x < SIZE&&star.y >= 0 && star.y < SIZE){
-            if (board[star.y][star.x] != me) flag++;
+            if (board[star.x][star.y] != me) flag++;
             else{
                 count += flag;
                 break;
@@ -156,7 +158,7 @@ int minimax(int x,int y,int mapnow[SIZE][SIZE],int expectnow[SIZE][SIZE],int dep
 
     Change(NOW, mapnow2, false);            //改變棋盤AI結束
 
-    int MAXEXPECT = 0, LINEEXPECT = 0, COUNT = 0;
+    int MAXEXPECT = 0, LINEEXPECT = 0;
     for (int i = 0; i < SIZE; ++i)
         for (int j = 0; j < SIZE; ++j)
         {
@@ -229,6 +231,19 @@ void write_valid_spot(std::ofstream& fout) {
                 for(int a=0;a<n_valid_spots;a++){
                     Point p = next_valid_spots[a];
                     int k = -1;
+                    if(board[0][0]==player){
+                               MAPPOINTCOUNT[1][0]=30;
+                               MAPPOINTCOUNT[0][1]=30;
+                           }else if(board[7][0]==player){
+                               MAPPOINTCOUNT[6][0]=30;
+                               MAPPOINTCOUNT[7][1]=30;
+                           }else if(board[0][7]==player){
+                               MAPPOINTCOUNT[0][6]=30;
+                               MAPPOINTCOUNT[1][7]=30;
+                           }else if(board[7][7]==player){
+                               MAPPOINTCOUNT[6][7]=30;
+                               MAPPOINTCOUNT[7][6]=30;
+                           }
                     k = minimax(i,j,mapp,expect,0,3)+MAPPOINTCOUNT[p.x][p.y];       //递归搜索 搜索三层
                     if (k >= maxx){
                         maxx = k;
