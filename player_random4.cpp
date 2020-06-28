@@ -82,7 +82,7 @@ inline int alpha_beta(int dep, int player, int alpha, int beta, int cnt){ //0 fo
     memcpy(temp, state, sizeof state);
     if(!player)
         for(re int id = 1; id <= 64; ++id){
-            int  x, , j;
+            int  x, y, i, j;
             i = (id-1)%8+1, j = (id-1)%8+1;
             if(state[i][j] == 0){
                 int flag = 0, t;

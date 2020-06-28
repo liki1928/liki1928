@@ -11,6 +11,7 @@
 		266956F224A70FF800B18389 /* player_random3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = player_random3.cpp; sourceTree = "<group>"; };
 		266956F324A7275D00B18389 /* player_random4.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = player_random4.cpp; sourceTree = "<group>"; };
 		266956F524A7399B00B18389 /* player_random5.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = player_random5.cpp; sourceTree = "<group>"; };
+		266956F624A7CD0C00B18389 /* player_random6.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = player_random6.cpp; sourceTree = "<group>"; };
 		26F1E42A24A396120003CDD8 /* makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
 		26F1E42B24A396120003CDD8 /* player_invalid.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = player_invalid.cpp; sourceTree = "<group>"; };
 		26F1E42C24A396120003CDD8 /* player_partial.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = player_partial.cpp; sourceTree = "<group>"; };
@@ -27,12 +28,13 @@
 				26F1E42B24A396120003CDD8 /* player_invalid.cpp */,
 				26F1E42C24A396120003CDD8 /* player_partial.cpp */,
 				26F1E42D24A396120003CDD8 /* main.cpp */,
-				266956F224A70FF800B18389 /* player_random3.cpp */,
-				266956F324A7275D00B18389 /* player_random4.cpp */,
 				26F1E42E24A396120003CDD8 /* player_infinite.cpp */,
 				26F1E42F24A396120003CDD8 /* player_random.cpp */,
 				266956F024A70B6100B18389 /* player_random2.cpp */,
+				266956F224A70FF800B18389 /* player_random3.cpp */,
+				266956F324A7275D00B18389 /* player_random4.cpp */,
 				266956F524A7399B00B18389 /* player_random5.cpp */,
+				266956F624A7CD0C00B18389 /* player_random6.cpp */,
 			);
 			sourceTree = "<group>";
 		};
